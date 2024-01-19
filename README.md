@@ -9,10 +9,10 @@ You can also download unitypackage.
 - Create a class that you want to pool.
 
  ```csharp
-  public class SamplePoolObject
-  {
+    public class SamplePoolObject
+    {
 
-  }
+    }
 ```
 
 - Derive this class from the PoolObjectBase class.
@@ -46,9 +46,9 @@ You can also download unitypackage.
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.CompareTag("SampleTag")
+            if (other.CompareTag("SampleTag")
             {
-                ReturnToQueue?.Invoke(this);
+                ReturnToQueue?.Invoke(this); // The object returns to the queue it belongs to.
             }
         }
     }
@@ -59,7 +59,7 @@ You can also download unitypackage.
 - Use the following code to instantiate the object: YourClass.GetPooledObject(parameters);
 
 ```csharp
-   public class SampleController : MonoBehaviour
+    public class SampleController : MonoBehaviour
     {
         [SerializeField] private SamplePoolObject samplePoolObject; // Your prefab
 
