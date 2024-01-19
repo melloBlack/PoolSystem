@@ -59,7 +59,7 @@ You can also download unitypackage.
 - Use the following code to instantiate the object: YourClass.GetPooledObject(parameters);
 
 ```csharp
-   public class PistolController : MonoBehaviour
+   public class SampleController : MonoBehaviour
     {
         [SerializeField] private SamplePoolObject samplePoolObject; // Your prefab
 
