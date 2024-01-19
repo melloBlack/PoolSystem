@@ -5,6 +5,8 @@
 You can also download unitypackage.
 [Unity Package İndir](https://drive.google.com/file/d/1YPd4AH_qKwc5QdsgDXFjYs8i7FGrXSGQ/view?usp=sharing)
 
+Uploading GenericPoolExample.mp4…
+
 ## Usage
 - Create a class that you want to pool.
 
