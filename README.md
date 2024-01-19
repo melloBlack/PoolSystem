@@ -34,24 +34,24 @@ You can also download unitypackage.
 - When you are done with the object, trigger the ReturnToQueue action found in the base class.
 
 ```csharp
-    public class SamplePoolObject : PoolObjectBase<SamplePoolObject>
-    {
-        /// <summary>
-        /// Abstract method called when the object is pulled.
-        /// </summary>
-        protected override void OnSpawnObject()
-        {
-            // You can write the operations you want the object to perform after being called within this method.
-        }
+   public class SamplePoolObject : PoolObjectBase<SamplePoolObject>
+   {
+       /// <summary>
+       /// Abstract method called when the object is pulled.
+       /// </summary>
+       protected override void OnSpawnObject()
+       {
+           // You can write the operations you want the object to perform after being called within this method.
+       }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("SampleTag")
-            {
-                ReturnToQueue?.Invoke(this); // The object returns to the queue it belongs to.
-            }
-        }
-    }
+       private void OnTriggerEnter(Collider other)
+       {
+           if (other.CompareTag("SampleTag")
+           {
+               ReturnToQueue?.Invoke(this); // The object returns to the queue it belongs to.
+           }
+       }
+   }
 ```
 
 - Open a controller class where you will create objects.
@@ -59,30 +59,30 @@ You can also download unitypackage.
 - Use the following code to instantiate the object: YourClass.GetPooledObject(parameters);
 
 ```csharp
-    public class SampleController : MonoBehaviour
-    {
-        [SerializeField] private SamplePoolObject samplePoolObject; // Your prefab
+   public class SampleController : MonoBehaviour
+   {
+       [SerializeField] private SamplePoolObject samplePoolObject; // Your prefab
 
-        private void PullObjectInQueue()
-        {
-            // Option 1
-            samplePoolObject.GetPooledObject();
+       private void PullObjectInQueue()
+       {
+           // Option 1
+           samplePoolObject.GetPooledObject();
 
-            Transform parent = transform;
+           Transform parent = transform;
 
-            // Option 2
-            samplePoolObject.GetPooledObject(parent);
+           // Option 2
+           samplePoolObject.GetPooledObject(parent);
 
-            Vector3 position = new Vector3(0, 5, 0);
-            Quaternion rotation = Quaternion.Euler(new Vector3(0, 90, 45));
+           Vector3 position = new Vector3(0, 5, 0);
+           Quaternion rotation = Quaternion.Euler(new Vector3(0, 90, 45));
 
-            // Option 3
-            samplePoolObject.GetPooledObject(position, rotation);
+           // Option 3
+           samplePoolObject.GetPooledObject(position, rotation);
 
-            // Option 4
-            samplePoolObject.GetPooledObject(parent, position, rotation);
-        }
-    }
+           // Option 4
+           samplePoolObject.GetPooledObject(parent, position, rotation);
+       }
+   }
 ```
 
 - You're ready to bend!
